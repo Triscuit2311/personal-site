@@ -1,0 +1,57 @@
+package ui
+
+import (
+	"main/pkg/md"
+	"fmt"
+)
+
+templ blogHomeBody() {
+	<div class="blog-home-container">
+		@makeBlogsHome()
+	</div>
+}
+
+templ blogCard(bd md.BlogData) {
+	<div
+		class="blog-preview-block"
+		hx-target="this"
+		hx-swap="none"
+		hx-headers={ fmt.Sprintf("{\"Hx-Page-Selection\":\"blog-post\",\"Hx-Blog-Selection\":\"%d\"}", bd.ID) }
+		hx-post="/blog-swap"
+	>
+		<div class="blog-preview-img-column">
+			<img
+				loading="lazy"
+				width="128"
+				decoding="async"
+				data-nimg="1"
+				class="blog-preview-img"
+				style="color:transparent"
+				src={ bd.ImagePath }
+			/>
+		</div>
+		<div class="blog-preview-text-column">
+			<h3 class="blog-preview-heading">{ bd.Title }</h3>
+			@seperator()
+			<p class="blog-preview-text">{ bd.Description }</p>
+		</div>
+	</div>
+}
+
+templ makeBlogsHome() {
+	for i:= range 50 {
+		if bd, ok := md.GlobalBlogData[50-i]; ok {
+			@blogCard(bd)
+		}
+	}
+}
+
+templ blogPostBody(blogId int) {
+	<div class="blog-content-container">
+		if bd, ok := md.GlobalBlogData[blogId]; ok {
+			@templ.Raw(bd.Html)
+		} else {
+			<div class="blog-missing">Invalid Blog ID</div>
+		}
+	</div>
+}

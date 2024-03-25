@@ -1,0 +1,30 @@
+package ui
+
+templ LandingPageBody() {
+	@heading()
+	@socials()
+}
+
+templ socials() {
+	<div class="socials-container">
+		@social("/assets/social/linkedin.svg", "https://www.linkedin.com/in/dtrisciuzzi/", "Visit My LinkedIn Page")
+		@social("/assets/social/github.svg", "https://github.com/Triscuit2311", "Check Out My Projects on Github")
+		@social("/assets/social/mail.svg", "mailto:DanteTrisciuzzi@proton.me", "Send me an E-Mail")
+		@social("/assets/social/paperclip.svg",
+			"mailto:DanteTrisciuzzi@proton.me?subject=Formal%20Resume%20Request&body=Hello%2C%20I%20am%20writing%20to%20request%20a%20formal%20resume%20for%20%7BPlease%20specify%7D.%0D%0A%0D%0ARegards%2C%0D%0A%7BYour%20name%7D%0D%0A%0D%0A%0D%0A%0D%0AEmail%20Templated%20from%20Trisciuzzi.dev",
+			"Request a Formal Resume")
+		@social("/assets/social/buy-me-a-coffee.svg", "https://www.buymeacoffee.com/trisciuzzi", "Buy Me a Coffee")
+	</div>
+	@socialToolTip()
+}
+
+templ heading() {
+	<script>
+	history.pushState(null, null, location.href);
+	window.onpopstate = function () {
+		history.go(1);
+	};
+</script>
+	<h1 class="main-heading">Dante Trisciuzzi</h1>
+	<h3 class="sub-heading">Software Engineer, or something.</h3>
+}

@@ -1,0 +1,39 @@
+package ui
+
+import "fmt"
+
+templ missingContent(msg string) {
+<div class="missing-content">{ msg }</div>
+}
+
+templ navLink(name, page string) {
+<span class="local-link-box" hx-target="this" hx-swap="none" hx-headers={ fmt.Sprintf("\"Hx-Page-Selection\":\"%v\"",
+	page) } hx-post="/body-swap">
+	{ name }
+</span>
+}
+
+templ seperator() {
+<hr class="horizontal-seperator" />
+}
+
+templ social(imgPath string, url templ.SafeURL, toolTip string) {
+<span class="social-icon">
+	<a href={ url } onmouseover={ mouseOverToolTip(toolTip) } onmouseout={ mouseOverToolTip("") }>
+		<img loading="lazy" width="24" height="24" decoding="async" data-nimg="1" class="social-icon"
+			style="color:transparent" src={ imgPath } />
+	</a>
+</span>
+}
+
+templ socialToolTip() {
+<div class="social-tool-tip"></div>
+}
+
+templ faderTop() {
+<div class="fader top-fader"></div>
+}
+
+templ faderBottom() {
+<div class="fader bottom-fader"></div>
+}

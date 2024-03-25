@@ -1,0 +1,6 @@
+package ui
+
+script mouseOverToolTip(toolTip string) {
+const
+toolTipDiv=document.querySelector(".social-tool-tip");toolTip.length>0?(toolTipDiv.classList.add("tooltip-removed"),toolTipDiv.classList.remove("tooltip-added"),setTimeout(()=>{toolTipDiv.textContent=toolTip,toolTipDiv.classList.add("tooltip-added"),toolTipDiv.classList.remove("tooltip-removed")},300)):(toolTipDiv.classList.add("tooltip-removed"),toolTipDiv.classList.remove("tooltip-added"),setTimeout(()=>{toolTipDiv.textContent=""},300));
+}

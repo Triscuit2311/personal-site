@@ -1,0 +1,18 @@
+.social-tool-tip {
+	font-size: 1.2rem;
+	text-align: center;
+	color: var(--col-fg-dark);
+	width: 100%;
+	padding: 1rem 0;
+	position: fixed;
+	bottom: 3rem;
+	transition: opacity var(--anim-fast) ease;
+}
+
+.tooltip-added {
+	opacity: 1;
+}
+
+.tooltip-removed {
+	opacity: 0;
+}

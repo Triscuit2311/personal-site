@@ -1,0 +1,63 @@
+package ui
+
+templ MainPage(selected int) {
+	<!DOCTYPE html>
+	<html lang="en">
+		@head()
+		@navigation(selected)
+		@faderTop()
+		<body>
+			@GetBody(selected, -1)
+		</body>
+		@faderBottom()
+		@footer()
+	</html>
+}
+
+templ navigation(selected int) {
+	<div class="nav-container">
+		@navLink("Blog", "blog")
+		@navLink("Home", "home")
+		@navLink("About", "cv")
+	</div>
+}
+
+templ GetBody(selected int, blogId int) {
+	<div class="body-container" id="body-swap-container" hx-swap-oob="true">
+		<script src="/scripts/prism.js"></script>
+		switch selected {
+			case LandingPage:
+				@LandingPageBody()
+			case PortfolioPage:
+			case CvPage:
+				@CvPageBody()
+			case BlogPage:
+				@blogHomeBody()
+			case BlogPostView:
+				@blogPostBody(blogId)
+			default:
+				<div>404 BODY</div>
+		}
+	</div>
+}
+
+templ head() {
+	<head>
+		<meta charSet="utf-8"/>
+		<title>Dante Trisciuzzi</title>
+		<link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+		<meta name="description" content="Welcome to my personal site"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="assets/style/vars.css"/>
+		<link rel="stylesheet" href="assets/style/global.css"/>
+		<script src="/scripts/htmx.min.js"></script>
+		<link rel="stylesheet" href="assets/style/landing.css"/>
+		<link rel="stylesheet" href="assets/style/cv.css"/>
+		<link rel="stylesheet" href="assets/style/blog.css"/>
+		<link rel="stylesheet" href="assets/style/prism/prism.css"/>
+	</head>
+}
+
+templ footer() {
+	<footer class="copyright-footer">Copyright © Dante Trisciuzzi 2024</footer>
+}

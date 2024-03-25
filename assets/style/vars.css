@@ -1,0 +1,13 @@
+:root {
+
+	--anim-slow: 1.2s;
+	--anim-fast: 0.6s;
+
+	--col-bg: #f5f5f5;
+	--col-fg-dark: #333;
+	--col-fg-light: #666;
+
+
+	--border-rad: 10px;
+
+}

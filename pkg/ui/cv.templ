@@ -1,0 +1,84 @@
+package ui
+
+templ CvPageBody() {
+	@aboutMeBlock()
+	@technologiesBlock(knowImgs, "What I Know")
+	@technologiesBlock(toolsImgs, "What I Use")
+	@technologiesBlock(learningImgs, "What I'm Learning")
+}
+
+var knowImgs = []string{
+	"c.svg",
+	"cplusplus.svg",
+	"csharp.svg",
+	"golang.svg",
+	"embeddedc.svg",
+	"lua.svg",
+	"opengl.svg",
+	"python.svg",
+	"java.svg",
+	"html-5.svg",
+}
+
+var learningImgs = []string{
+	"zig.svg",
+	"js.svg",
+	"haskell.svg",
+	"mongodb.svg",
+	"redis.svg",
+}
+
+var toolsImgs = []string{
+	"neovim.svg",
+	"ghidra.svg",
+	"docker.svg",
+	"visual-studio.svg",
+	"aws.svg",
+	"git.svg",
+	"jetbrains.svg",
+	"vscode.svg",
+	"platformio.svg",
+	"pop_os.svg",
+}
+
+const aboutMeStr string = ` Hello there! I'm Dante, a Software Engineer and Marine Corps veteran. I have an expertise in
+a range of programming languages and tools, and I love tackling complex challenges. I build tools and solutions for
+native systems and the web. Whether that's developer tooling, anti-cheat systems for game
+servers, embedded systems (hardware, firmware, interfaces) for my automotive projects, or even just this website (built
+with Go & HTMX), my approach is always performance-first. I love reverse engineering, malware analysis, and developing
+security measures. When I'm not working, you might find me competing in CTF challenges, riding bicycles, or playing
+with cars.`
+
+templ cvHeading() {
+	<h1 class="cv-heading">Dante Trisciuzzi</h1>
+}
+
+templ technologiesBlock(list []string, heading string) {
+	<div class="cv-tech-block">
+		<h3 class="tech-block-heading">{ heading }</h3>
+		@seperator()
+		for i, v := range list {
+			if i%5 == 0 && i > 0 {
+				<div></div>
+			}
+			<span class="tech-icon">
+				<img
+					loading="lazy"
+					width="48"
+					height="48"
+					decoding="async"
+					data-nimg="1"
+					class="social-icon"
+					style="color:transparent"
+					src={ "/assets/tech/" + v }
+				/>
+			</span>
+		}
+	</div>
+}
+
+templ aboutMeBlock() {
+	<span class="about-me-text">
+		{ aboutMeStr }
+	</span>
+}

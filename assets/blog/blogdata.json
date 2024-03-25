@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "title": "Embracing Simplicity: Go as a C++ developer.",
+      "postfile": "golang.md",
+      "imagefile": "gopher_idle1c.gif",
+      "desc": "Why I like Go."
+    },
+    {
+      "id": 3,
+      "title": "SLACCr: RP2040 HID Emulator",
+      "postfile": "slaccr.md",
+      "imagefile": "RP2040.jpg",
+      "desc": "Building an accessible accessibility device."
+    },
+    {
+      "id": 2,
+      "title": "Zig: Thoughts from a C developer",
+      "postfile": "zig-thoughts.md",
+      "imagefile": "zig.png",
+      "desc": "Why I think Zig is pretty killer"
+    },
+    {
+      "id": 1,
+      "title": "ChatGPT in CS Education",
+      "postfile": "gpt-cs-edu.md",
+      "imagefile": "gpt.webp",
+      "desc": "How to make yourself worthless to a future employer."
+    }
+
+  ]
+}

@@ -1,0 +1,36 @@
+.cv-tech-block {
+	align-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	padding: 10px;
+	border: 2px solid rgba(0, 0, 0, .2);
+	border-radius: var(--border-rad);
+	-moz-border-radius: var(--border-rad);
+}
+
+.cv-heading {
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+	color: var(--col-fg-dark);
+}
+
+.tech-block-heading {
+	text-align: center;
+	font-size: 1.2rem;
+	margin-bottom: 0.1rem;
+	margin-top: 0.1rem;
+	color: var(--col-fg-light);
+}
+
+.about-me-text {
+	text-indent: 2em;
+	line-height: 1.6;
+	color: var(--col-fg-dark);
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	text-justify: inter-word;
+	text-align: justify;
+}
