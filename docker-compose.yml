@@ -2,8 +2,6 @@ version: '3.8'
 services:
   golang_app:
     build: .
-    ports:
-      - "3000:3000"
     networks:
       - app-network
 
