@@ -10,6 +10,7 @@ services:
       context: ./nginx
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - golang_app
     networks:
@@ -18,3 +19,4 @@ services:
 networks:
   app-network:
     driver: bridge
+
